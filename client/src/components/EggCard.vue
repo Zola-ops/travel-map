@@ -2,6 +2,7 @@
 import { ref, onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
 import type { Egg } from '@/types'
+import { useUser } from '@/composables/useUser'
 
 const props = defineProps<{
   cityName: string
@@ -14,8 +15,9 @@ const emit = defineEmits<{
   submitEgg: [nickname: string, message: string]
 }>()
 
+const { username } = useUser()
 const showForm = ref(false)
-const nickname = ref('')
+const nickname = ref(username.value || '')
 const message = ref('')
 const submitted = ref(false)
 const cardRef = ref<HTMLDivElement | null>(null)
