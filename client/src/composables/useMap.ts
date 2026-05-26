@@ -173,12 +173,10 @@ export function useMap() {
           icon: midpointIcons[i],
           iconColor: midpointColors[i],
         })),
-        symbolSize: 20,
-        symbol: 'circle',
+        symbolSize: 0,
+        symbol: 'none',
         itemStyle: {
-          color: 'rgba(255,255,255,0.9)',
-          borderColor: '#ccc',
-          borderWidth: 1.5,
+          color: 'transparent',
         },
         label: {
           show: true,
