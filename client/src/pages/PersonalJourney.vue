@@ -7,8 +7,10 @@ import TemplateSelector from '@/components/TemplateSelector.vue'
 import JourneyEditor from '@/components/JourneyEditor.vue'
 import JourneyViewer from '@/components/JourneyViewer.vue'
 import { getUserId } from '@/utils/uuid'
+import { useUser } from '@/composables/useUser'
 
 const { journeys, fetchJourneys, createJourney } = useJourney()
+const { username } = useUser()
 
 type Step = 'list' | 'template' | 'editor' | 'view'
 
@@ -52,7 +54,7 @@ function onStartCustom() {
 // Flow: Save journey
 async function onSave(name: string, cities: JourneyCity[]) {
   const id = await createJourney({
-    userNickname: '旅行者',
+    userNickname: username.value || '旅行者',
     journeyName: name || '未命名旅程',
     templateType: editingTemplateType.value,
     cities: cities.filter((c) => c.cityName),
