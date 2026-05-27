@@ -80,9 +80,9 @@ async function handleClose() {
 
 <template>
   <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" @click.self="handleClose">
-    <div ref="cardRef" class="bg-white border border-gray-200 rounded-2xl w-full max-w-lg mx-4 overflow-hidden shadow-xl">
+    <div ref="cardRef" class="bg-white border border-gray-200 rounded-2xl w-full max-w-lg mx-4 overflow-hidden shadow-xl max-h-[90vh] flex flex-col">
       <!-- Header -->
-      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 flex-shrink-0">
         <div>
           <h3 class="text-lg font-semibold text-gray-900">📍 {{ cityName }}</h3>
           <p class="text-xs text-gray-500">{{ eggs.length }} 条彩蛋</p>
@@ -91,7 +91,7 @@ async function handleClose() {
       </div>
 
       <!-- Eggs -->
-      <div class="px-6 py-4 max-h-80 overflow-y-auto space-y-4">
+      <div class="px-6 py-4 flex-1 min-h-0 overflow-y-auto space-y-4">
         <div v-if="!eggs.length" class="text-center py-8">
           <p class="text-gray-500">这里还没有人留下足迹</p>
           <p class="text-brand-orange text-sm mt-1">来做第一个吧！</p>
@@ -111,7 +111,7 @@ async function handleClose() {
       </div>
 
       <!-- Form or Button -->
-      <div class="px-6 py-4 border-t border-gray-200">
+      <div class="px-6 py-4 border-t border-gray-200 flex-shrink-0">
         <div v-if="submitted" class="text-center text-brand-green py-2 text-sm">
           你的彩蛋已留在 {{ cityName }}，等待下一位旅行者发现 ✨
         </div>

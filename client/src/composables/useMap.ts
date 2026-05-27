@@ -259,6 +259,7 @@ export function useMap() {
 
     const existingSeries = (chartInstance.value.getOption() as any).series || []
     chartInstance.value.setOption({ series: [...existingSeries.filter((s: any) => s.name !== '已到访' && s.name !== '任意门'), ...series] })
+    chartInstance.value.resize()
   }
 
   function flyToCity(lng: number, lat: number) {

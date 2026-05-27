@@ -156,7 +156,7 @@ const canPreview = computed(() => filledCities.value.length >= 2)
 <template>
   <div class="h-full flex flex-col lg:flex-row gap-4 p-4">
     <!-- Left: Editor panel -->
-    <div class="lg:w-80 flex-shrink-0 flex flex-col gap-4 overflow-y-auto">
+    <div class="lg:w-80 flex-shrink-0 flex flex-col gap-4 lg:max-h-none max-h-[calc(100vh-2rem)]">
       <!-- Header -->
       <div class="flex items-center gap-3">
         <button @click="emit('back')" class="text-gray-500 hover:text-gray-900 text-sm transition-colors">&larr; 返回</button>
@@ -216,7 +216,7 @@ const canPreview = computed(() => filledCities.value.length >= 2)
       </div>
 
       <!-- City list -->
-      <div class="flex flex-col gap-2">
+      <div class="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2">
         <div class="text-xs text-gray-500 flex items-center justify-between">
           <span>城市节点 ({{ filledCities.length }}/{{ cities.length }} 已填写)</span>
           <button
@@ -296,7 +296,7 @@ const canPreview = computed(() => filledCities.value.length >= 2)
       </div>
 
       <!-- Actions -->
-      <div class="flex gap-3 mt-auto pt-4 border-t border-gray-200">
+      <div class="flex gap-3 mt-auto pt-4 border-t border-gray-200 flex-shrink-0">
         <button
           @click="handleSave"
           :disabled="!canSave"
